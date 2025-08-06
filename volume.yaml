@@ -16,7 +16,7 @@ spec:
   storageClassName: local-storage
   claimRef:
     name: jenkins-pv-claim
-    namespace: devops-tools
+    namespace: jenkins
   capacity:
     storage: 10Gi
   accessModes:
@@ -29,15 +29,15 @@ spec:
       - matchExpressions:
         - key: kubernetes.io/hostname
           operator: In
-          values:
-          - worker-node01
+          values: k8-Worker1
+          - 
 
 ---
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
   name: jenkins-pv-claim
-  namespace: devops-tools
+  namespace: jenkins
 spec:
   storageClassName: local-storage
   accessModes:
